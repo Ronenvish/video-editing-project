@@ -1,0 +1,28 @@
+.scenes-container {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .selected-scenes-container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .empty-scene {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hidden-video {
+    display: none;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="scene-container">
+  <div class="scene-info-container">
+    <span>
+      {{ scene.name }}
+    </span>
+    <span>
+      Duration:
+      {{ scene.duration }}
+      s
+    </span>
+  </div>
+  <app-play-button (click)="playScene()"></app-play-button>
+</div>

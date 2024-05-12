@@ -1,0 +1,78 @@
+<section class="ruler-container">
+  <div class="ruler-buttons">
+    <div class="size-buttons">
+      <p-button
+        icon="pi pi-minus"
+        [rounded]="true"
+        severity="secondary"
+        (click)="zoomIn()"
+        [style]="{
+          'background-color': 'black',
+          width: '40px',
+          height: '40px',
+          'margin-right': '10px'
+        }"
+      />
+      <p-button
+        icon="pi pi-plus"
+        [rounded]="true"
+        size="small"
+        severity="secondary"
+        (click)="zoomOut()"
+        [style]="{
+      'background-color': 'black',
+      width: '40px',
+      height: '40px',
+    }"
+      />
+    </div>
+    <p-button
+      [label]="label"
+      (click)="buttonToggleClick()"
+      [style]="{
+    'background-color': 'black',
+    color: 'white',
+    padding: '10px',
+    'border-color': 'gray',
+    width: '130px',
+  }"
+    />
+  </div>
+  <div class="ruler">
+    <app-cursor></app-cursor>
+    <div
+      [style.transform]="'translateX(' + -currentPosition + 'px)'"
+      cdkDragLockAxis="x"
+      cdkDrag
+      (cdkDragEnded)="onDragEnded($event)"
+    >
+      <div class="ruler-time">
+        <span
+          class="ruler-number"
+          *ngFor="let num of generateRange()"
+          (click)="setRulerToSelectedNumberOnClick(num)"
+          >{{ num }}</span
+        >
+      </div>
+      <div
+        class="ruler-scene"
+        id="rulerList"
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="selectedSceneInsideRuler"
+        cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="listed-scenes">
+          <app-ruler-videos
+            *ngFor="let scene of selectedSceneInsideRuler"
+            [scene]="scene"
+            [width]="calculateChildrenWidth()"
+            cdkDrag
+          ></app-ruler-videos>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-container"></div>
+</section>

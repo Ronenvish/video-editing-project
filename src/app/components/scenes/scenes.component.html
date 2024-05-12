@@ -1,0 +1,42 @@
+<div class="scenes-container">
+  <p-fileUpload
+    mode="basic"
+    chooseLabel="Upload"
+    chooseIcon="pi pi-upload"
+    name="demo[]"
+    url="https://www.primefaces.org/cdn/api/upload.php"
+    accept="video/mp4"
+    maxFileSize="10000000"
+    styleClass="upload-button"
+    multiple="false"
+    [style]="{
+      'background-color': 'black',
+      color: 'white',
+      padding: '10px',
+      'border-color': 'gray',
+      width: '130px',
+    }"
+    (onUpload)="onUpload($event)"
+  />
+  <span *ngIf="scenesToRender.length === 0; else elseBlock" class="empty-scene">
+    No scenes selected
+  </span>
+  <ng-template #elseBlock>
+    <div
+      class="selected-scenes-container"
+      id="sceneList"
+      cdkDropList
+      #sceneList="cdkDropList"
+      [cdkDropListData]="scenesToRender"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-scene
+        *ngFor="let scene of scenesToRender"
+        [scene]="scene"
+        cdkDrag
+        [cdkDragData]="scene"
+      ></app-scene>
+    </div>
+  </ng-template>
+  <video #uploaded [src]="src" class="hidden-video"></video>
+</div>

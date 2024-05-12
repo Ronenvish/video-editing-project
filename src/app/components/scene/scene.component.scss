@@ -1,0 +1,16 @@
+.scene-container {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 20px;
+
+  .scene-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

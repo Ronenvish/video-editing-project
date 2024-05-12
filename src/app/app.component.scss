@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .outlet-container {
+    height: 100%;
+    padding: 20px 40px;
+
+    @media screen and (max-width: 768px) {
+      padding: 10px 20px;
+    }
+  }
+}

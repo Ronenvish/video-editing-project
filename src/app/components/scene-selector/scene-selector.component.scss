@@ -1,0 +1,25 @@
+.scene-selector-container {
+  display: flex;
+
+  .all-scenes-container {
+    width: 50%;
+    padding-right: 10px;
+  }
+
+  .preview-container {
+    width: 50%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}

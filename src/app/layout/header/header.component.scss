@@ -1,0 +1,18 @@
+.wrapper {
+  width: 100%;
+
+  border-bottom: 1px solid var(--border-color);
+
+  padding: 20px 40px;
+  background-color: black;
+  color: white;
+
+  .header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: large;
+    font-weight: bold;
+  }
+}

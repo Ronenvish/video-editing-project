@@ -1,0 +1,37 @@
+.scene-cursor {
+  position: absolute;
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  .cursor-top {
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: red;
+    position: relative;
+  }
+  .cursor-top:after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: red;
+  }
+
+  .cursor-bottom {
+    width: 3px;
+    height: 95px;
+
+    background-color: red;
+  }
+}
