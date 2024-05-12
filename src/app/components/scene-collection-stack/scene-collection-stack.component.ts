@@ -42,9 +42,6 @@ export class SceneCollectionStackComponent {
     this.rulerSubscription = this.rulerService.rulerStatus$.subscribe(
       (status) => {
         switch (status) {
-          case 'Initial':
-            console.log('initial');
-            break;
           case 'CustomPosition':
           case 'Initial':
           case 'Replay':
