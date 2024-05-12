@@ -10,7 +10,7 @@ import { Scene, RulerStatus } from '../../../utils/types';
 import { DragNDropService } from '../../services/drag-n-drop.service';
 import { SceneComponent } from '../scene/scene.component';
 import { CommonModule } from '@angular/common';
-import { TimelineService } from '../../services/timeline.service';
+import { ScenesService } from '../../services/scenes.service';
 import { RulerVideosComponent } from '../ruler-videos/ruler-videos.component';
 import { ButtonModule } from 'primeng/button';
 import { RulerService } from '../../services/ruler.service';
@@ -34,7 +34,7 @@ import { RulerService } from '../../services/ruler.service';
 export class RulerComponent {
   constructor(
     private dragNDropService: DragNDropService,
-    private timelineService: TimelineService,
+    private scenesService: ScenesService,
     private rulerService: RulerService,
     private elementRef: ElementRef
   ) {}
@@ -143,14 +143,14 @@ export class RulerComponent {
             this.timeFrame !== 0
               ? this.timeFrame
               : this.calculateCurrentPosition();
-          this.timelineService.addSelectedScenesByArrayOfIds(
+          this.scenesService.addSelectedScenesByArrayOfIds(
             this.selectedSceneInsideRuler.map((scene) => scene.id)
           );
           this.rulerService.setCustomPosition(customPosition);
           this.rulerService.setRulerStatus('CustomPosition');
           this.startAnimation();
         } else {
-          this.timelineService.addSelectedScenesByArrayOfIds(
+          this.scenesService.addSelectedScenesByArrayOfIds(
             this.selectedSceneInsideRuler.map((scene) => scene.id)
           );
           this.rulerService.setRulerStatus('Play');

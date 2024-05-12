@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Scene } from '../../utils/types';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TimelineService {
+export class ScenesService {
   constructor() {}
 
   private uploadedScenes: Scene[] = [];

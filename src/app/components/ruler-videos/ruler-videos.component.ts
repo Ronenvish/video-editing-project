@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { Scene } from '../../../utils/types';
-import { TimelineService } from '../../services/timeline.service';
+import { ScenesService } from '../../services/scenes.service';
 
 @Component({
   selector: 'app-ruler-videos',
@@ -10,14 +10,14 @@ import { TimelineService } from '../../services/timeline.service';
   styleUrl: './ruler-videos.component.scss',
 })
 export class RulerVideosComponent {
-  constructor(private timeLineService: TimelineService) {}
+  constructor(private scenesService: ScenesService) {}
   @Input() public scene!: Scene;
   @Input() public width!: number;
 
   public calculatedWidth: number | undefined;
 
   ngOnInit() {
-    this.timeLineService.changeSceneStatus(this.scene.id, true);
+    this.scenesService.changeSceneStatus(this.scene.id, true);
     this.calculatedWidth = this.width && this.width * this.scene.duration;
   }
 

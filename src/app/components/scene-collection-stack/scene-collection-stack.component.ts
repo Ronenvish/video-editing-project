@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { TimelineService } from '../../services/timeline.service';
+import { ScenesService } from '../../services/scenes.service';
 import { CommonModule } from '@angular/common';
 import { Scene } from '../../../utils/types';
 import { RulerService } from '../../services/ruler.service';
@@ -19,7 +19,7 @@ type VideoInfo = {
 })
 export class SceneCollectionStackComponent {
   constructor(
-    private timelineService: TimelineService,
+    private scenesService: ScenesService,
     private rulerService: RulerService
   ) {}
 
@@ -35,7 +35,7 @@ export class SceneCollectionStackComponent {
 
   ngOnInit() {
     this.uploadedSceneSubscription =
-      this.timelineService.uploadedScene$.subscribe((scene) => {
+      this.scenesService.uploadedScene$.subscribe((scene) => {
         this.sceneToRender.push(scene);
       });
 
@@ -51,7 +51,7 @@ export class SceneCollectionStackComponent {
               customPosition = this.rulerService.getCustomPosition();
             }
 
-            const selectedUrlsToPlay = this.timelineService
+            const selectedUrlsToPlay = this.scenesService
               .getSelectedScenes()
               .map((scene) => scene);
 
@@ -76,9 +76,9 @@ export class SceneCollectionStackComponent {
             console.log('finished');
             break;
           case 'SingleVideo':
-            console.log('pre', this.timelineService.getSelectedScenes());
+            console.log('pre', this.scenesService.getSelectedScenes());
 
-            const video = this.timelineService
+            const video = this.scenesService
               .getSelectedScenes()
               .map((scene) => scene.url);
 
