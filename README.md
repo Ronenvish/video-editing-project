@@ -15,7 +15,11 @@ To run this project, you will need to do the following steps: -->
    ```sh
    cd video-editing-project/
    ```
-3. Run the website:
+3. Install dependencies:
+   ```sh
+   npm i
+   ```
+4. Run the website:
    ```sh
    ng serve
    ```
