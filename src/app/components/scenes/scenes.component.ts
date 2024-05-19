@@ -3,7 +3,7 @@ import { SceneComponent } from '../scene/scene.component';
 import { CommonModule } from '@angular/common';
 import { Scene } from '../../../utils/types';
 import { FileUploadModule } from 'primeng/fileupload';
-import { TimelineService } from '../../services/timeline.service';
+import { ScenesService } from '../../services/scenes.service';
 import {
   CdkDropList,
   CdkDrag,
@@ -29,7 +29,7 @@ import { Subscription } from 'rxjs';
 })
 export class ScenesComponent {
   constructor(
-    private timelineService: TimelineService,
+    private scenesService: ScenesService,
     private dragNDropService: DragNDropService
   ) {}
 
@@ -58,7 +58,7 @@ export class ScenesComponent {
           selected: false,
         };
 
-        this.timelineService.addOneSceneToUpload(newScene);
+        this.scenesService.addOneSceneToUpload(newScene);
         this.videoElement.nativeElement.removeEventListener(
           'loadedmetadata',
           this.loadedMetadataListener
@@ -81,12 +81,12 @@ export class ScenesComponent {
       selected: false,
     };
 
-    this.timelineService.addOneSceneToUpload(newScene);
+    this.scenesService.addOneSceneToUpload(newScene);
   }
 
   ngOnInit() {
     this.uploadedSceneSubscription =
-      this.timelineService.uploadedScene$.subscribe((scene) => {
+      this.scenesService.uploadedScene$.subscribe((scene) => {
         this.scenesToRender.push(scene!);
       });
   }

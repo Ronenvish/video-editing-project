@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Scene } from '../../../utils/types';
 import { PlayButtonComponent } from '../play-button/play-button.component';
-import { TimelineService } from '../../services/timeline.service';
+import { ScenesService } from '../../services/scenes.service';
 import { RulerService } from '../../services/ruler.service';
 
 @Component({
@@ -13,14 +13,14 @@ import { RulerService } from '../../services/ruler.service';
 })
 export class SceneComponent {
   constructor(
-    private timelineService: TimelineService,
+    private scenesService: ScenesService,
     private rulerService: RulerService
   ) {}
 
   @Input() public scene!: Scene;
 
   playScene() {
-    this.timelineService.addSelectedScenesByArrayOfIds([this.scene.id]);
+    this.scenesService.addSelectedScenesByArrayOfIds([this.scene.id]);
     this.rulerService.setRulerStatus('SingleVideo');
   }
 }
