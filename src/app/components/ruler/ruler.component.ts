@@ -158,17 +158,17 @@ export class RulerComponent {
         }
         break;
       case 'Play':
-        this.label = 'Pause';
+        this.label = 'Resume';
         this.pauseAnimation();
         this.rulerService.setRulerStatus('Pause');
         break;
       case 'Pause':
-        this.label = 'Resume';
+        this.label = 'Pause';
         this.rulerService.setRulerStatus('Resume');
         this.startAnimation();
         break;
       case 'Resume':
-        this.label = 'Pause';
+        this.label = 'Resume';
         this.pauseAnimation();
         this.rulerService.setRulerStatus('Pause');
         break;
